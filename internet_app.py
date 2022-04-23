@@ -9,15 +9,12 @@ import pandas as pd
 import json
 from flask import Flask, jsonify,render_template
 
-#Create engine
-engine = create_engine('postgresql://virginiaMwaper@localhost:5432/internet.sqlite')
+ # Create engine using the database file
+engine = create_engine("sqlite:///Resources/internet.sqlite")
 
 #Reflect Database
 Base = automap_base()
 Base.prepare(engine, reflect = True)
-
-#Save table references
-Internet = Base.classes.internet
 
 #Create session
 session = Session(engine)
@@ -36,7 +33,7 @@ app = Flask(__name__)
 @app.route("/api/dashboard")
 def api_overview():
     dbConnect = engine.connect()
-    df = pd.read_sql('select * from world_internet_db', dbConnect)
+    df = pd.read_sql('select * from internet_with_countrycodes', dbConnect)
     json_overview = json.loads(df.to_json(orient='records'))
     dbConnect.close()
     return jsonify(json_overview)
@@ -45,9 +42,9 @@ def api_overview():
 # HTML Routes
 #################################################
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+# @app.route('/html')
+# def index():
+#     return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
