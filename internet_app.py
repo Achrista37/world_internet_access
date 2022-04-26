@@ -22,21 +22,30 @@ session = Session(engine)
 #################################################
 # Flask Setup
 #################################################
+#app.config["CACHE_TYPE"] = "null"
 app = Flask(__name__)
 
 
 #################################################
 # Flask Routes
 #################################################
+@app.route("/")
+def welcome():
+    """List all available api routes."""
+    return (
+            f"Available Routes:<br/>"
+            f"/api/dashboard"
+            )
+
 
 # API Pages
 @app.route("/api/dashboard")
 def api_overview():
-    dbConnect = engine.connect()
-    df = pd.read_sql('select * from internet_with_countrycodes', dbConnect)
-    json_overview = json.loads(df.to_json(orient='records'))
-    dbConnect.close()
-    return jsonify(json_overview)
+   dbConnect = engine.connect()
+   df = pd.read_sql('select * from internet_with_countrycodes', dbConnect)
+   json_overview = json.loads(df.to_json(orient='records'))
+   dbConnect.close()
+   return jsonify(json_overview)
 
 #################################################
 # HTML Routes
