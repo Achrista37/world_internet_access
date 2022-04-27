@@ -2,20 +2,15 @@
   
 function initdropdown() {
 
-    var dropdown = d3.select("#selDataset");
+    var dropdown = d3.select("#selDataset"); 
 
-    d3.json('static/js/Internet_data.json').then((data) => {
-        var country_names = data.Country;
-        country_names.forEach((name) => {
-            dropdown
-            .append('option')
-            .text(name) 
-            .property("value", name);
-            console.log(name);
-    });
-
+    d3.json('static/js/Internet_data.json', function(data) {
+        data.forEach(function (id, index) {
+            dropdown.append("option").text(id.Country).property("value", id.Country);
         });
+    });
 };
+
 
 initdropdown();
 
@@ -47,7 +42,6 @@ function updatePlotly() {
         var time = [2011, 2012, 2013,2014,2015,2016,2017,2018,2019]
 
         data.forEach(function (d) {
-            country.push(d.Country);
             year2011.push(d.Internet_Use_Perc_2011);
             year2012.push(d.Internet_Use_Perc_2012);
             year2013.push(d.Internet_Use_Perc_2013);
@@ -87,7 +81,7 @@ function updatePlotly() {
 
     d3.json('static/js/Internet_data.json', function(data) {
     
-        var country = [];
+        var country = dataset;
         var year2011 =  [];
         var year2012 =  [];
         var year2013 =  [];
@@ -100,7 +94,6 @@ function updatePlotly() {
         var time = [2011, 2012, 2013,2014,2015,2016,2017,2018,2019]
 
         data.forEach(function (d) {
-            country.push(dataset);
             year2011.push(d.GDP_2011);
             year2012.push(d.GDP_2012);
             year2013.push(d.GDP__2013);
