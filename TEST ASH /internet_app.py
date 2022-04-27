@@ -30,17 +30,13 @@ app = Flask(__name__)
 #################################################
 
 # API Pages
-@app.route("/api/dashboard")
+@app.route("/api/main")
 def api_overview():
     dbConnect = engine.connect()
-    df = pd.read_sql('select * from internet_with_countrycodes', dbConnect)
+    df = pd.read_sql('select * from Internet_data_hpfl', dbConnect)
     json_overview = json.loads(df.to_json(orient='records'))
     dbConnect.close()
     return jsonify(json_overview)
-
-#function: 
- #Take the JSON and manipulate it in a way 
- #that makes it usable for the charts
 
  
 #################################################
