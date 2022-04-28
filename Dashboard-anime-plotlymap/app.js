@@ -1,4 +1,4 @@
-    d3.json("internet_with_countrycodes.json", function(err, rows) {
+    d3.json("https://world-internet-access.herokuapp.com/api/dashboard", function(err, rows) {
         console.log(rows);
         function unpack(rows, key) {
             return rows.map(function(row) { return row[key]; });
@@ -7,9 +7,9 @@
       var data = [{
           type: 'choropleth',
           locationmode: 'country codes',
-          locations: unpack(rows, 'Country_Code'),
-          z: unpack(rows, '2019_Internet_Use_Perc'),
-          text: unpack(rows, 'Country_Name'),
+          locations: unpack(rows, 'Abbr'),
+          z: unpack(rows, 'Internet_Use_Perc_2019'),
+          text: unpack(rows, 'Country'),
           autocolorscale: false,
             reversescale: true,
             marker: {
@@ -41,3 +41,20 @@
     });
 
 
+    function initdropdown() {
+
+        var annum = ["2011","2012","2013","2014","2015","2016","2017","2018","2019"]; 
+        var select = document.getElementById("selectYear");        
+        for(var i = 0; i < annum.length; i++) 
+        {
+            var opt = annum[i];
+            var el = document.createElement("option");
+            el.textContent = opt;
+            el.value = opt;
+            select.appendChild(el);
+        }
+    };
+    
+    
+    initdropdown();
+    

@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import json
 from flask import Flask, jsonify,render_template
+from flask_cors import CORS
 
  # Create engine using the database file
 engine = create_engine("sqlite:///Resources/internet.sqlite")
@@ -24,7 +25,7 @@ session = Session(engine)
 #################################################
 #app.config["CACHE_TYPE"] = "null"
 app = Flask(__name__)
-
+CORS(app)
 
 #################################################
 # Flask Routes
