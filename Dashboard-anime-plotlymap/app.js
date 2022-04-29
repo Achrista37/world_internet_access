@@ -41,7 +41,7 @@ d3.json("https://world-internet-access.herokuapp.com/api/dashboard", function(er
       Plotly.newPlot("myDiv", data, layout, {showLink: false});
     });
 
-
+/*
 function initannumdropdown() {
 
         var annum = ["2011","2012","2013","2014","2015","2016","2017","2018","2019"]; 
@@ -55,9 +55,34 @@ function initannumdropdown() {
             select.appendChild(el);
         }
     };
+    */
+//////////////////////////////////////////////////////////////////////////
+    function initannumdropdown() {
+        // Use D3 to select the dropdown menu
+        var dropdownMenu = d3.select("#select-year");
+        var annum = ["2011","2012","2013","2014","2015","2016","2017","2018","2019"]; 
+        
+          //populate drop down menu
+          annum.forEach((name) => {
+            dropdownMenu
+              .append('option')
+            .text(name) // text showed in the menu
+            .property("value", name);
+            // console.log(name);
+          });
+          //get the graph to display the first participant's data when the page initially loads
+        //   var uponLoadingpage = annum[0];
+        //   console.log(uponLoadingpage);
+        //   createBarcharts(uponLoadingpage);
+        chartEarth(annum[0]);  
+      }
+
+
+
 
 initannumdropdown();
-*/
+
+/*
 d3.json("https://world-internet-access.herokuapp.com/api/dashboard").then((data) => {
     console.log(data[0]);
 });
@@ -110,6 +135,7 @@ d3.json("https://world-internet-access.herokuapp.com/api/dashboard").then((mydat
 )
 ;
 }
+*/
 
 function chartEarth(yearof) {
 d3.json("https://world-internet-access.herokuapp.com/api/dashboard", function(err, rows) {
@@ -117,12 +143,15 @@ d3.json("https://world-internet-access.herokuapp.com/api/dashboard", function(er
         function unpack(rows, key) {
             return rows.map(function(row) { return row[key]; });
         }
-  
+        
+        var yearstr = 'Internet_Use_Perc_' + yearof ;
+        console.log(yearstr)
+
       var data = [{
           type: 'choropleth',
           locationmode: 'country codes',
           locations: unpack(rows, 'Abbr'),
-          z: unpack(rows, 'Internet_Use_Perc_2019'),
+          z: unpack(rows, yearstr),
           text: unpack(rows, 'Country'),
           autocolorscale: false,
             reversescale: true,
@@ -160,4 +189,4 @@ function optionChanged(newVariable) {
     console.log(newVariable);
     chartEarth(newVariable);  
   }
-  
+ 
