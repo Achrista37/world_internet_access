@@ -26,13 +26,14 @@ var chartGroup = svg.append("g")
 
 // Initial Params
 var chosenXAxis = "population_2011";
+var chosenxAxis = "GDP_2011";
 
 // function used for updating x-scale var upon click on axis label
 function xScale(peopleData, chosenXAxis) {
   // create scales
   var xLinearScale = d3.scaleLinear()
-    .domain([d3.min(peopleData, d => d[chosenXAxis]) * 2,
-      d3.max(peopleData, d => d[chosenXAxis]) * 0.5
+    .domain([d3.min(peopleData, d => d[chosenXAxis]) * -9,
+      d3.max(peopleData, d => d[chosenXAxis]) * 0.01
     ])
     .range([0, width]);
 
@@ -65,11 +66,11 @@ function renderCircles(circlesGroup, newXScale, chosenXAxis) {
 // function used for updating circles group with new tooltip
 function updateToolTip(chosenXAxis, circlesGroup) {
 
-  if (chosenXAxis === "population_2011") {
-    var label = "population_2011:";
+  if (chosenXAxis === "GDP") {
+    var label = "GDP:";
   }
   else {
-    var label = "GDP_2011: ";
+    var label = "Population: ";
   }
 
   var toolTip = d3.tip()
@@ -153,7 +154,7 @@ function updateToolTip(chosenXAxis, circlesGroup) {
         .classed("active", true)
         .text("Population");
   
-    var GDP2011Label = labelsGroup.append("text")
+    var GDPLabel = labelsGroup.append("text")
         .attr("x", 0)
         .attr("y", 40)
         .attr("value", "GDP") // value to grab for event listener
@@ -169,9 +170,9 @@ function updateToolTip(chosenXAxis, circlesGroup) {
         .classed("active", true)
         .classed("axis-text", true)
         .text("Internet Usage");
-  
     // updateToolTip function above csv import
     var circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
+
   
     // x axis labels event listener
     labelsGroup.selectAll("text")
@@ -197,7 +198,7 @@ function updateToolTip(chosenXAxis, circlesGroup) {
   
             // changes classes to change bold text
             if (chosenXAxis === "GDP") {
-            GDP2011Label
+            GDPLabel
                 .classed("active", true)
                 .classed("inactive", false);
             incomeLengthLabel
@@ -205,7 +206,7 @@ function updateToolTip(chosenXAxis, circlesGroup) {
                 .classed("inactive", true);
             }
             else {
-            GDP2011Label
+            GDPLabel
                 .classed("active", false)
                 .classed("inactive", true);
             incomeLengthLabel
@@ -216,8 +217,7 @@ function updateToolTip(chosenXAxis, circlesGroup) {
         });
     });
   
-  
-  
+    
   
   
   
