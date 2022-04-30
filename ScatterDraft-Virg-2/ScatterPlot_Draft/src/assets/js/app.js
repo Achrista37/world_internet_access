@@ -1,6 +1,6 @@
 // @TODO: YOUR CODE HERE!
-var svgWidth = 960;
-var svgHeight = 700;
+var svgWidth = 1500;
+var svgHeight = 900;
 
 var margin = {
   top: 20,
@@ -32,8 +32,8 @@ var chosenxAxis = "GDP_2011";
 function xScale(peopleData, chosenXAxis) {
   // create scales
   var xLinearScale = d3.scaleLinear()
-    .domain([d3.min(peopleData, d => d[chosenXAxis]) * -9,
-      d3.max(peopleData, d => d[chosenXAxis]) * 0.01
+    .domain([d3.min(peopleData, d => d[chosenXAxis]),
+      d3.max(peopleData, d => d[chosenXAxis])
     ])
     .range([0, width]);
 
