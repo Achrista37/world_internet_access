@@ -99,6 +99,11 @@ function updateToolTip(chosenXAxis, circlesGroup) {
   d3.json("https://world-internet-access.herokuapp.com/api/dashboard").then(function(data) {
     //Test data connection
     console.log(data);
+//year string
+//dropdown select
+//var yearstr = [`Internet_Use_Perc_${yearof}`, `population_${yearof}`,`GDP_${yearof}`];
+//console.log(yearstr)
+
     // parse data
     data.forEach(function(data) {
         data.Internet = +data.Internet_Use_Perc_2011/100;
@@ -107,6 +112,7 @@ function updateToolTip(chosenXAxis, circlesGroup) {
         data.abbr = data.Abbr;
     })
   
+
     // xLinearScale function above csv import
     var xLinearScale = xScale(data, chosenXAxis);
   
@@ -128,8 +134,8 @@ function updateToolTip(chosenXAxis, circlesGroup) {
     // append y axis
     chartGroup.append("g")
         .call(leftAxis
-          .ticks(10)
-          .tickFormat(d3.format(",.1%")));
+          .ticks(15)
+          .tickFormat(d3.format(",.2%")));
   
     // append initial circles
     var circlesGroup = chartGroup.selectAll("circle")
@@ -138,7 +144,7 @@ function updateToolTip(chosenXAxis, circlesGroup) {
         .append("circle")
         .attr("cx", d => xLinearScale(d[chosenXAxis]))
         .attr("cy", d => yLinearScale(d.Internet))
-        .attr("r", 8)
+        .attr("r", 12)
         .attr("fill", "blue")
         .attr("opacity", ".5");
     //append abbreviations    
@@ -216,13 +222,10 @@ function updateToolTip(chosenXAxis, circlesGroup) {
         }
         });
     });
-  
-    
-  
-  
-  
-  
-  
+
+ 
+
+
   
   
   
