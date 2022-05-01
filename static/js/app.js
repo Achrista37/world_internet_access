@@ -5,10 +5,12 @@ function chartEarth(yearof) {
         // globaldata = rows;
         function unpack(rows, key) {
             return rows.map(function (row) { return row[key]; });
-        }
+        };
 
         var yearstr = `Internet_Use_Perc_${yearof}`;
         console.log(yearstr)
+
+////////////ANDRIANI PLOT 
 
         var data = [{
             type: 'choropleth',
@@ -44,6 +46,66 @@ function chartEarth(yearof) {
         };
 
         Plotly.newPlot("myDiv", data, layout, { showLink: false });
+
+////////////////// ASH PLOT
+
+        var income = unpack(rows, 'IncomeGroup')
+        // console.log(income)
+        newincome = []
+        for (i = 0; i < income.length; i++) {
+
+            if (income[i] == "High income") {
+                newincome.push('rgb(235,64,52,1');
+            }
+            else if (income[i] == 'Upper middle income') {
+                newincome.push('rgb(52,225,235,1');
+            }
+            else if (income[i] == 'Lower middle income') {
+                newincome.push('rgb(70,52,235,1');
+            }
+            else if (income[i] == 'Low income') {
+                newincome.push('rgb(201,52,235,1');
+            }
+        }
+        // console.log(income)
+
+        var trace1 = {
+            x: unpack(rows, 'Country'),
+            y: unpack(rows, yearstr),
+            type: 'bar',
+            showlegend: true,
+
+            name: 'Internet Use',
+            marker: {
+                color: newincome,
+            }
+          };
+          
+        var data2 = [trace1];
+
+        var layout2 = {
+            title: `${yearof} World Internet Use`,
+            width:1400,
+            height: 300,
+            barmode: 'relative',
+            xaxis: {
+                tickmode: 'array',
+                ticks: 'outside',
+                tickangle: 90,
+                tickcolor: '#000',
+                textfont_size:8, 
+                tickvals:unpack(rows, 'Country'),
+                ticktext:unpack(rows, 'Country'),
+              },
+              yaxis:{
+                  range:[0,100]
+
+              }
+
+            };
+          
+        Plotly.newPlot('barchart', data2, layout2);
+          
     });
 };
 
@@ -80,5 +142,6 @@ function initannumdropdown() {
 
 
 initannumdropdown();
+
 
 
