@@ -25,6 +25,12 @@ body {
     background-color:rgb(201, 201, 255) ;
   }
 
+  .animation{
+    margin-top: 0px;
+    padding-bottom: 0px;
+
+  }
+
   p{
     font-family :'Courier New', Courier, monospace;
   }
