@@ -1,6 +1,6 @@
 body {
   background-color :rgb(245, 245, 252); 
-  font-family : "Open Sans", sans-serif;
+  font-family :"Helvetica", sans-serif;;
 }
   
   .mainbody {
@@ -25,6 +25,10 @@ body {
     background-color:rgb(201, 201, 255) ;
   }
 
+  p{
+    font-family :'Courier New', Courier, monospace;
+  }
+
   .row2{
     margin-top: 100px;
   }
@@ -34,9 +38,9 @@ body {
     margin-right: 10px;
     
   }
+  
 
   .well{
-    font-family : "Open Sans", sans-serif;
     margin-left: 10px;
     width: fit-content;
     height:fit-content;
@@ -46,7 +50,7 @@ body {
     padding-right: 5px;
     padding-left: 5px;
     padding-top: 2px;
-
+    font-family :'Courier New', Courier, monospace;
     border: 1.5px solid black;
     padding: 10px;
     border-top-right-radius: 10px;
@@ -90,7 +94,6 @@ body {
     margin-left: 35px;
     margin-right: 45px;
     margin-top: 45px;
-
     padding-bottom: 200px;
     padding-right: 0px;
     padding-left: 0px;
@@ -105,131 +108,47 @@ body {
 
   }
 
- 
-
-/* 
-  .select-year {
-    text-decoration : none; 
-    color : #2d2f31;
+  .legend > li:nth-of-type(1) {
+    color:rgb(175, 175, 218);
+    font-weight: bold
   }
-
-
-  nav {
-    width : 300px; 
-    background: #d9d9d9;
-    margin : 40px auto; 
-  }
-
-  span {
-    padding : 30px;
-    background : #2d2f31; 
-    color : white;
-    font-size : 1.2em;
-    font-variant : small-caps;
-    cursor : pointer;
-    display: block;
-  }
-
-  span::after {
-    float: right;
-    right: 10%;
-    content: "+";
-  }
-  .slide {
-    clear:both;
-    width:100%;
-    height:0px;
-    overflow: hidden;
-    text-align: center;
-    transition: height .4s ease;
-  }
-  
-  .slide li {padding : 30px;} */
-  /* .slide li {padding : 30px;}
-
-  touch {position: absolute; opacity: 0; height: 0px;}    
-
-  #touch:checked + .slide {height: 300px;}  */
-
-  /* .navbar-brand {
-    background-color: rgb(42, 158, 143);
-    margin-left: 20px;
+    li:nth-of-type(2) {
+      color:rgb(141, 205, 209);
+      font-weight: bold
     
+  }
+
+  li:nth-of-type(3) {
+    color:rgb(214, 161, 202);
+    font-weight: bold
+  
+  }
+  li:nth-of-type(4) {
+    color:rgb(233, 175, 142);
+    font-weight: bold
 
   }
-  hr {width: 100%;height: 1px;margin-left: auto;margin-right: auto;background-color:rgb(235, 227, 227);border: 0 none;margin-top: 20px;margin: bottom 10px;px;
+
+  .legend{
+    margin-left: 200px;
+    margin-top: 50px;
+  }
+
+  li {
+    display: inline;
+    font-family :'Courier New', Courier, monospace;
 }
-
-  .navbar-brand-text{
-    color: white;
-    font-family: Times New Roman;
-    font-weight: bold;
-    font-size: 25px;
-    margin-left: 0px;
-
-  }
-   
-  .header1 {
-    font-size: 36px;
-    font-weight: bold;
-    color: rgb(105, 172, 163);
-    font-family: Times New Roman;
-  }
-  .header2 {
-    font-size: 28px;
-    font-weight: bold;
-    color: rgb(105, 172, 163);
-    font-family: Times New Roman;
+  .row5{
+    background-color:rgb(201, 201, 255);
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-bottom: 20px;
   }
 
-  .header3 {
-    font-size: 28px;
-    font-weight: bold;
-    color: rgb(105, 172, 163);
-    font-family: Times New Roman;
-    text-align:center
+  .footer{
+    background-color: rgb(201, 201, 255);
+    color:rgb(201, 201, 255) ;
   }
-  
-  p{
-      font-size: 15px;
-      font-family: Arial;
-      color: rgb(104, 101, 101)
-  }
-
-  .bigcolumn{
-    background-color: white;
-    padding-bottom: 40px;
-
-  }
-  .smallcolumn{
-    background-color: white;
-    margin-left: 20px;
-    padding-bottom: 78px;
-  }
-  
-  .smallcolumn2{
-    background-color: white;
-    margin-left: 20px;
-    padding-bottom: 15px;
-  }
-
-
-
-  .comparisoncolumn{
-    background-color: white;
-
-
-  }
-
-  .img{
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 50%;
-    }
-  
 
 
   
- 
-

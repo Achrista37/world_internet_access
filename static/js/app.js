@@ -34,11 +34,17 @@ function chartEarth(yearof) {
                 autotic: false,
                 tickprefix: '%',
                 title: '% Population of the Country Using Internet'
+           
             }
         }];
         console.log(rows)
         var layout = {
             title: `${yearof} World Internet Use`,
+            font: {
+                family: 'Courier New, monospace',
+                size: 12
+            
+            },
             autosize: false,
             width: 700,
             paper_bgcolor:'rgb(255, 229, 249)',
@@ -80,18 +86,12 @@ function chartEarth(yearof) {
                 newincome.push('rgb(233, 175, 142,1');
             }
         }
-        // console.log(income)
-
         var trace1 = {
             x: unpack(rows, 'Country'),
             y: unpack(rows, yearstr),
             type: 'bar',
             marker: {
                 color: newincome,
-            // name: 'high Income',
-            // marker: {
-            //     color: 'black'
-            //     }
             }
           };
           
@@ -99,7 +99,12 @@ function chartEarth(yearof) {
 
         var layout2 = {
 
-            title: `${yearof} World Internet Use`,
+            title: `${yearof} World Internet Use by Income Group`,
+            font: {
+                family: 'Courier New, monospace',
+                size: 12
+            
+            },
             width:1370,
             autosize: true,
             showlegend:'true',
@@ -108,7 +113,14 @@ function chartEarth(yearof) {
             paper_bgcolor:'rgb(255, 227, 211)',
             plot_bgcolor:'rgb(255, 227, 211)',
             xaxis: {
+                title: 'Country',
+                font: {
+                  family: 'Courier New, monospace',
+                  size: 12,
+                  color: 'black'
+                },
                 tickmode: 'array',
+                
                 ticks: 'outside',
                 tickangle: 90,
                 tickcolor: '#000',
@@ -117,7 +129,13 @@ function chartEarth(yearof) {
                 ticktext:unpack(rows, 'Country'),
               },
               yaxis:{
-                  range:[0,100]
+                  range:[0,100],
+                  title: '(%) Population using the Internet',
+                  font: {
+                      family: 'Courier New, monospace',
+                      size: 12,
+                      color: 'black'
+                },
 
               }
 
