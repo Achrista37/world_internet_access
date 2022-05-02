@@ -1,3 +1,5 @@
+
+ 
 // @TODO: YOUR CODE HERE!
 var svgWidth = 1500;
 var svgHeight = 900;
@@ -78,7 +80,7 @@ function updateToolTip(chosenXAxis, circlesGroup) {
     .offset([100, -10])
     //.offset([0,5])
     .html(function(d) {
-      return (`${d.Country}<br>Internet_Usage_Perc_2011: ${parseFloat(d.Internet_Use_Perc_2011).toFixed(1)}%<br>${label} ${d[chosenXAxis]}`);
+      return (`${d.Country}<br>Internet_Usage_Perc_: ${parseFloat(d.Internet_Use_Perc_).toFixed(1)}%<br>${label} ${d[chosenXAxis]}`);
     });
 
 
@@ -98,21 +100,14 @@ function updateToolTip(chosenXAxis, circlesGroup) {
 // Read CSV
   d3.json("https://world-internet-access.herokuapp.com/api/dashboard").then(function(data) {
     //Test data connection
-    console.log(data);
-//year string
-//dropdown select
-//var yearstr = [`Internet_Use_Perc_${yearof}`, `population_${yearof}`,`GDP_${yearof}`];
-//console.log(yearstr)
+    console.log(data); //variables
 
-    // parse data
     data.forEach(function(data) {
         data.Internet = +data.Internet_Use_Perc_2011/100;
         data.GDP = +data.GDP_2011;
         data.population = +data.population_2011;
         data.abbr = data.Abbr;
     })
-  
-
     // xLinearScale function above csv import
     var xLinearScale = xScale(data, chosenXAxis);
   
@@ -223,9 +218,33 @@ function updateToolTip(chosenXAxis, circlesGroup) {
         });
     });
 
- 
+ //handle selected option
+ function optionChanged(newVariable) {
+  console.log(newVariable);
+}
+
+function initannumdropdown() {
+  // Use D3 to select the dropdown menu
+  var dropdownMenu = d3.select("#select-year");
+  var annum = ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"];
+  
+  //populate drop down menu
+  annum.forEach((name) => {
+      dropdownMenu
+          .append('option')
+          .text(name) // text showed in the menu
+          .property("value", name);
+      // console.log(name);
+  });
+  //get the graph to display the first participant's data when the page initially loads
+  console.log("year");
+  // d3.json("https://world-internet-access.herokuapp.com/api/dashboard").then(rowsAC => {
+  //     data = rowsAC;
+     // chartEarth(annum[0]);
+  //     console.log(rows);
+  //     console.log(data);
+  // })
+}
 
 
-  
-  
-  
+initannumdropdown();
