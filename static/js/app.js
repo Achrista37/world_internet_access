@@ -10,7 +10,7 @@ function chartEarth(yearof) {
         var yearstr = `Internet_Use_Perc_${yearof}`;
         console.log(yearstr)
 
-////////////ANDRIANI PLOT 
+////////////INTERNET MAP
 
 
         var data = [{
@@ -66,7 +66,7 @@ function chartEarth(yearof) {
 
         Plotly.newPlot("myDiv", data, layout, { showLink: false });
 
-////////////////// ASH PLOT
+////////////////// BAR CHART 
 
         var income = unpack(rows, 'IncomeGroup')
         // console.log(income)
