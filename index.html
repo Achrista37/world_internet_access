@@ -3,47 +3,50 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>World Internet Access</title>
-  <link rel="stylesheet" href="static/js/anime.css">
+  <link rel="stylesheet" href="static/css/anime.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/styles.css">
+
   <script src='https://cdn.plot.ly/plotly-2.11.1.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
 </head>
 
 <body>
-	
-  <!-- <script src="app.js"></script> -->
 
-  <div class="container">
+  <div class="mainbody">
     <div class="row">
-      <div class="col-md-12 jumbotron text-center">
+      <div class="col-md-12 jumbotron text-center header">
         <h1 class="ml2">World Internet Access</h1>
         <p>Use this interactive dashboard to explore the dataset</p>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Select Year</h5>
-          <select id="select-year" onchange="optionChanged(this.value)"></select>
-        </div>
-        
+    <div class="row row2">
+      <div  class="col-md-2 dropdown">
+        <div  class="well">
+          <h5 >Select Year</h5>
+          <select  id="select-year" onchange="optionChanged(this.value)"></select>
+        </div> 
       </div>
-      <div class="col-md-8">
-        <div id="myDiv"></div>
+      <div class="col-md-9">
+        <hr class="line">
       </div>
+    </div>
+
+    <div class="row row3"></div>
+      <div class="col-md-6 map">
+      <div id="myDiv"></div>
+    </div>
+    </div>
       <div class="col-md-5">
         <div id="scatter"></div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-8">
+    <div class="row row4">
+      <div class="col-md-10 bar">
         <div id='barchart'></div>
-          
-      
-
       </div>
     </div>
   </div>
@@ -58,8 +61,5 @@
 
 </html>
 
-<!-- 
-<head>
--->
 
 

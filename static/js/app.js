@@ -12,6 +12,7 @@ function chartEarth(yearof) {
 
 ////////////ANDRIANI PLOT 
 
+
         var data = [{
             type: 'choropleth',
             locationmode: 'country codes',
@@ -38,6 +39,18 @@ function chartEarth(yearof) {
         console.log(rows)
         var layout = {
             title: `${yearof} World Internet Use`,
+            autosize: false,
+            width: 700,
+            paper_bgcolor:'rgb(255, 229, 249)',
+            plot_bgcolor:'rgb(245, 245, 252)',
+            height: 550,
+            margin: {
+                l: 20,
+                r: 30,
+                b: 5,
+                t: 30,
+                pad: 2
+              },
             geo: {
                 projection: {
                     type: 'hammer'
@@ -55,16 +68,16 @@ function chartEarth(yearof) {
         for (i = 0; i < income.length; i++) {
 
             if (income[i] == "High income") {
-                newincome.push('rgb(235,64,52,1');
+                newincome.push('rgb(175, 175, 218,1');
             }
             else if (income[i] == 'Upper middle income') {
-                newincome.push('rgb(52,225,235,1');
+                newincome.push('rgb(141, 205, 209,1)');
             }
             else if (income[i] == 'Lower middle income') {
-                newincome.push('rgb(70,52,235,1');
+                newincome.push('rgb(214, 161, 202,1');
             }
             else if (income[i] == 'Low income') {
-                newincome.push('rgb(201,52,235,1');
+                newincome.push('rgb(233, 175, 142,1');
             }
         }
         // console.log(income)
@@ -73,27 +86,33 @@ function chartEarth(yearof) {
             x: unpack(rows, 'Country'),
             y: unpack(rows, yearstr),
             type: 'bar',
-            showlegend: true,
-
-            name: 'Internet Use',
             marker: {
                 color: newincome,
+            // name: 'high Income',
+            // marker: {
+            //     color: 'black'
+            //     }
             }
           };
           
         var data2 = [trace1];
 
         var layout2 = {
+
             title: `${yearof} World Internet Use`,
-            width:1400,
-            height: 300,
+            width:1370,
+            autosize: true,
+            showlegend:'true',
+            height: 400,
             barmode: 'relative',
+            paper_bgcolor:'rgb(255, 227, 211)',
+            plot_bgcolor:'rgb(255, 227, 211)',
             xaxis: {
                 tickmode: 'array',
                 ticks: 'outside',
                 tickangle: 90,
                 tickcolor: '#000',
-                textfont_size:8, 
+                textfont_size:7, 
                 tickvals:unpack(rows, 'Country'),
                 ticktext:unpack(rows, 'Country'),
               },

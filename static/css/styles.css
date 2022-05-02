@@ -1,0 +1,235 @@
+body {
+  background-color :rgb(245, 245, 252); 
+  font-family : "Open Sans", sans-serif;
+}
+  
+  .mainbody {
+    background-color: rgb(201, 201, 255);
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    height: 140px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black ;
+
+  }
+
+  .jumbotron{
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 50px;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 0%;
+    margin: 0px;
+    background-color:rgb(201, 201, 255) ;
+  }
+
+  .row2{
+    margin-top: 100px;
+  }
+
+  .dropdown{
+    padding-right: 0px;
+    margin-right: 10px;
+    
+  }
+
+  .well{
+    font-family : "Open Sans", sans-serif;
+    margin-left: 10px;
+    width: fit-content;
+    height:fit-content;
+    margin-right: 0px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 2px;
+
+    border: 1.5px solid black;
+    padding: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .line{
+    padding-top: 10px;
+    border: 2px solid black;
+    background-color: rgb(201, 201, 255);
+  }
+  .row3{
+    margin-top: 10px ;
+    margin: left 100x;
+    margin-left: 50px;
+    
+    }
+
+  .map{
+    margin: 0px;
+    margin-left: 20px;
+    padding-bottom: 40%;
+    border: 1.5px solid black;
+    padding: 10px;
+    background-color:rgb(255, 229, 249);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    
+
+  }
+  .row4{
+  margin-top: 140px ;
+  margin-bottom: 30px;
+  }
+  .bar{
+    margin: 0px;
+    margin-left: 35px;
+    margin-right: 45px;
+    margin-top: 45px;
+
+    padding-bottom: 200px;
+    padding-right: 0px;
+    padding-left: 0px;
+    width: fit-content;
+    background-color:rgb(255, 227, 211);
+    border: 1.5px solid black;
+    padding: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+  }
+
+ 
+
+/* 
+  .select-year {
+    text-decoration : none; 
+    color : #2d2f31;
+  }
+
+
+  nav {
+    width : 300px; 
+    background: #d9d9d9;
+    margin : 40px auto; 
+  }
+
+  span {
+    padding : 30px;
+    background : #2d2f31; 
+    color : white;
+    font-size : 1.2em;
+    font-variant : small-caps;
+    cursor : pointer;
+    display: block;
+  }
+
+  span::after {
+    float: right;
+    right: 10%;
+    content: "+";
+  }
+  .slide {
+    clear:both;
+    width:100%;
+    height:0px;
+    overflow: hidden;
+    text-align: center;
+    transition: height .4s ease;
+  }
+  
+  .slide li {padding : 30px;} */
+  /* .slide li {padding : 30px;}
+
+  touch {position: absolute; opacity: 0; height: 0px;}    
+
+  #touch:checked + .slide {height: 300px;}  */
+
+  /* .navbar-brand {
+    background-color: rgb(42, 158, 143);
+    margin-left: 20px;
+    
+
+  }
+  hr {width: 100%;height: 1px;margin-left: auto;margin-right: auto;background-color:rgb(235, 227, 227);border: 0 none;margin-top: 20px;margin: bottom 10px;px;
+}
+
+  .navbar-brand-text{
+    color: white;
+    font-family: Times New Roman;
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 0px;
+
+  }
+   
+  .header1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: rgb(105, 172, 163);
+    font-family: Times New Roman;
+  }
+  .header2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(105, 172, 163);
+    font-family: Times New Roman;
+  }
+
+  .header3 {
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(105, 172, 163);
+    font-family: Times New Roman;
+    text-align:center
+  }
+  
+  p{
+      font-size: 15px;
+      font-family: Arial;
+      color: rgb(104, 101, 101)
+  }
+
+  .bigcolumn{
+    background-color: white;
+    padding-bottom: 40px;
+
+  }
+  .smallcolumn{
+    background-color: white;
+    margin-left: 20px;
+    padding-bottom: 78px;
+  }
+  
+  .smallcolumn2{
+    background-color: white;
+    margin-left: 20px;
+    padding-bottom: 15px;
+  }
+
+
+
+  .comparisoncolumn{
+    background-color: white;
+
+
+  }
+
+  .img{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+  
+
+
+  
+ 
+
