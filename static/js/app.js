@@ -1,8 +1,7 @@
-// var globaldata = null;
+
 
 function chartEarth(yearof) {
     d3.json("https://world-internet-access.herokuapp.com/api/dashboard").then(rows => {
-        // globaldata = rows;
         function unpack(rows, key) {
             return rows.map(function (row) { return row[key]; });
         };
@@ -11,8 +10,6 @@ function chartEarth(yearof) {
         console.log(yearstr)
 
 ////////////INTERNET MAP
-
-
         var data = [{
             type: 'choropleth',
             locationmode: 'country codes',
@@ -64,6 +61,7 @@ function chartEarth(yearof) {
             }
         };
 
+        
         Plotly.newPlot("myDiv", data, layout, { showLink: false });
 
 ////////////////// BAR CHART 
@@ -145,8 +143,56 @@ function chartEarth(yearof) {
           
     });
 };
+///////GDP MAP 
+function chartEarth2(yearof2) {
+    d3.json("https://world-internet-access.herokuapp.com/api/dashboard").then(rows => {
+        function unpack(rows, key) {
+            return rows.map(function (row) { return row[key]; });
+        }
 
+        var yearstr2 = `GDP_${yearof2}`;
 
+        var datas = [{
+            type: 'choropleth',
+            locationmode: 'country codes',
+            locations: unpack(rows, 'Abbr'),
+            z: unpack(rows, yearstr2),
+            text: unpack(rows, 'Country'),
+            autocolorscale: false,
+            reversescale: true,
+            marker: {
+                line: {
+                    color: 'rgb(0,191,255)',
+                    width: 0.5
+                }
+            },
+            tick0: 0,
+            zmin: 0,
+            dtick: 1000,
+            colorbar: {
+                autotic: false,
+                tickprefix: '%',
+                title: 'GDP'
+            }
+        }];
+        console.log(rows)
+        var layouts = {
+            autosize: false,
+            width: 600,
+            paper_bgcolor:'rgb(255, 229, 249)',
+            plot_bgcolor:'rgb(245, 245, 252)',
+            height: 500,
+            title: `${yearof2} World GDP`,
+            geo: {
+                projection: {
+                    type: 'hammer'
+                }
+            }
+        };
+
+        Plotly.newPlot("GDP", datas, layouts, { showLink: false });
+    });
+};
 
 //handle selected option
 function optionChanged(newVariable) {
