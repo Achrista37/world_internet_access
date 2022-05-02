@@ -22,20 +22,8 @@
      <div class="col-xs-12  col-md-9">
        <div id="scatter">
         <h6>Select Year</h6>
-        <select id="d3-dropdown">
-          <option value=>2011</option>
-          <option value=>2012</option>
-          <option value=>2013</option>
-          <option value=>2014</option>
-          <option value=>2015</option>
-          <option value=>2016</option>
-          <option value=>2017</option>
-          <option value=>2018</option>
-          <option value=>2019</option>
-        </select>
-        
+        <select id="select-year" onchange="optionChanged(this.value)"></select>
         <p id="selected-dropdown"></p>
-  
 </select>
          <!-- We append our chart here. -->
        </div>
