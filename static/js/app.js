@@ -172,7 +172,7 @@ function chartEarth2(yearof2) {
             colorbar: {
                 autotic: false,
                 tickprefix: '',
-                title: 'GDP'
+                title: 'GDP %'
             }
         }];
         console.log(rows)
