@@ -29,8 +29,8 @@ function chartEarth(yearof) {
             dtick: 1000,
             colorbar: {
                 autotic: false,
-                tickprefix: '%',
-                title: '% Population of the Country Using Internet'
+                tickprefix: '',
+                title: 'Internet usage (%)'
            
             }
         }];
@@ -39,7 +39,7 @@ function chartEarth(yearof) {
             title: `${yearof} World Internet Use`,
             font: {
                 family: 'Courier New, monospace',
-                size: 12
+                size: 16
             
             },
             autosize: false,
@@ -122,7 +122,7 @@ function chartEarth(yearof) {
                 ticks: 'outside',
                 tickangle: 90,
                 tickcolor: '#000',
-                textfont_size:7, 
+                textfont_size:8, 
                 tickvals:unpack(rows, 'Country'),
                 ticktext:unpack(rows, 'Country'),
               },
@@ -171,25 +171,38 @@ function chartEarth2(yearof2) {
             dtick: 1000,
             colorbar: {
                 autotic: false,
-                tickprefix: '%',
+                tickprefix: '',
                 title: 'GDP'
             }
         }];
         console.log(rows)
         var layouts = {
+            
             autosize: false,
-            width: 600,
-            paper_bgcolor:'rgb(255, 229, 249)',
-            plot_bgcolor:'rgb(245, 245, 252)',
-            height: 500,
+            width: 700,
+            paper_bgcolor:'rgb(205, 215, 30, 0.911)',
+            plot_bgcolor:'rgb(176, 217, 43)',
+            height: 550,
             title: `${yearof2} World GDP`,
+            font: {
+                family: 'Courier New, monospace',
+                size: 16
+            
+            },
+            margin: {
+                l: 20,
+                r: 30,
+                b: 5,
+                t: 30,
+                pad: 2
+              },
             geo: {
                 projection: {
                     type: 'hammer'
                 }
             }
         };
-
+        
         Plotly.newPlot("GDP", datas, layouts, { showLink: false });
     });
 };
@@ -197,7 +210,8 @@ function chartEarth2(yearof2) {
 //handle selected option
 function optionChanged(newVariable) {
     console.log(newVariable);
-    chartEarth(newVariable);
+    chartEarth(newVariable)
+    chartEarth2(newVariable)
 }
 
 function initannumdropdown() {
@@ -218,6 +232,7 @@ function initannumdropdown() {
     // d3.json("https://world-internet-access.herokuapp.com/api/dashboard").then(rowsAC => {
     //     data = rowsAC;
         chartEarth(annum[0]);
+        chartEarth2(annum[0]);
     //     console.log(rows);
     //     console.log(data);
     // })
