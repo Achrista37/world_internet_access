@@ -183,7 +183,7 @@ function chartEarth2(yearof2) {
             paper_bgcolor:'rgb(225, 254, 250)',
             plot_bgcolor:'rgb(225, 254, 250)',
             height: 550,
-            title: `${yearof2} World GDP`,
+            title: `${yearof2} World GDP Growth`,
             font: {
                 family: 'Courier New, monospace',
                 size: 16
