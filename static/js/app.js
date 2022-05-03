@@ -43,7 +43,7 @@ function chartEarth(yearof) {
             
             },
             autosize: false,
-            width: 700,
+            width: 580,
             paper_bgcolor:'rgb(255, 229, 249)',
             plot_bgcolor:'rgb(245, 245, 252)',
             height: 550,
@@ -179,9 +179,9 @@ function chartEarth2(yearof2) {
         var layouts = {
             
             autosize: false,
-            width: 700,
-            paper_bgcolor:'rgb(205, 215, 30, 0.911)',
-            plot_bgcolor:'rgb(176, 217, 43)',
+            width: 580,
+            paper_bgcolor:'rgb(225, 254, 250)',
+            plot_bgcolor:'rgb(225, 254, 250)',
             height: 550,
             title: `${yearof2} World GDP`,
             font: {
